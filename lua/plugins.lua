@@ -16,11 +16,12 @@ return require("packer").startup(function(use)
     end
   }
 
-  -- Code, completion and linting
+  -- Code completion formatting and linting
   use {
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
     "neovim/nvim-lspconfig",
+    "MunifTanjim/prettier.nvim",
     "jose-elias-alvarez/null-ls.nvim",
     "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/cmp-buffer",
