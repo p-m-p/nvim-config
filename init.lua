@@ -16,6 +16,7 @@ vim.cmd([[
   set ignorecase smartcase
 
   nnoremap <silent> ca <cmd>lua vim.lsp.buf.code_action()<CR>
+  nnoremap <leader>c :noh<cr>
 ]])
 
 require("plugins")
