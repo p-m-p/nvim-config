@@ -41,7 +41,7 @@ return require("packer").startup(function(use)
     "hrsh7th/cmp-path",
     "hrsh7th/cmp-cmdline",
     "hrsh7th/nvim-cmp",
-    { "L3MON4D3/LuaSnip", tag = "v<CurrentMajor>.*" },
+    { "L3MON4D3/LuaSnip", tag = "v1.*" },
     { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" },
     "tpope/vim-surround",
     "jiangmiao/auto-pairs",

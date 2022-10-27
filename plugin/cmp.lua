@@ -67,7 +67,7 @@ cmp.setup.cmdline(':', {
 -- Set up lspconfig
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 local lspconfig = require('lspconfig')
-lspconfig.bash.setup { capabilities = capabilities }
+lspconfig.bashls.setup { capabilities = capabilities }
 lspconfig.tsserver.setup { capabilities = capabilities }
 lspconfig.eslint.setup { capabilities = capabilities }
 lspconfig.sumneko_lua.setup { capabilities = capabilities }
