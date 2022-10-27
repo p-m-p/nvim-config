@@ -47,6 +47,14 @@ return require("packer").startup(function(use)
     "jiangmiao/auto-pairs",
   }
 
+  use {
+    "editorconfig/editorconfig-vim",
+    setup = function()
+      vim.g.EditorConfig_max_line_indicator = "none"
+      vim.g.EditorConfig_preserve_formatoptions = 1
+    end,
+  }
+
   -- Status bar
   use { "nvim-lualine/lualine.nvim" }
 
