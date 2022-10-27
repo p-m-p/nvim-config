@@ -42,6 +42,7 @@ return require("packer").startup(function(use)
     "hrsh7th/cmp-cmdline",
     "hrsh7th/nvim-cmp",
     { "L3MON4D3/LuaSnip", tag = "v1.*" },
+    "rafamadriz/friendly-snippets",
     { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" },
     "tpope/vim-surround",
     "jiangmiao/auto-pairs",
@@ -69,7 +70,7 @@ return require("packer").startup(function(use)
       "nvim-lua/plenary.nvim"
     }
   }
-  use {"nvim-telescope/telescope-ui-select.nvim" }
+  use { "nvim-telescope/telescope-ui-select.nvim" }
 
   -- Issues
   use {
