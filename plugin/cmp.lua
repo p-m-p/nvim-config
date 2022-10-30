@@ -68,6 +68,9 @@ cmp.setup.cmdline(':', {
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 local lspconfig = require('lspconfig')
 lspconfig.bashls.setup { capabilities = capabilities }
+lspconfig.cssls.setup { capabilities = capabilities }
+lspconfig.html.setup { capabilities = capabilities }
+lspconfig.sumneko_lua.setup { capabilities = capabilities }
 lspconfig.tsserver.setup { capabilities = capabilities }
 lspconfig.eslint.setup { capabilities = capabilities }
-lspconfig.sumneko_lua.setup { capabilities = capabilities }
+lspconfig.stylelint_lsp.setup { capabilities = capabilities, filetypes = { "css", "scss" } }
