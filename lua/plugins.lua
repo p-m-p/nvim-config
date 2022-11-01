@@ -74,12 +74,7 @@ return require("packer").startup(function(use)
   use { "nvim-telescope/telescope-ui-select.nvim" }
 
   -- Issues
-  use {
-    "folke/trouble.nvim",
-    config = function()
-      require("trouble").setup()
-    end
-  }
+  use { "folke/trouble.nvim" }
 
   if packer_bootstrap then
     require('packer').sync()
