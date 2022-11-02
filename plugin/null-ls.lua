@@ -15,12 +15,4 @@ require("null-ls").setup({
   end,
 })
 
-local prettier = require("prettier")
-
-prettier.setup({
-  ["null-ls.condition"] = function ()
-    return require('prettier.utils').config_exists({
-      check_package_json = true
-    })
-  end
-})
+require("prettier").setup()
