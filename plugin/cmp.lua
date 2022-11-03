@@ -64,13 +64,25 @@ cmp.setup.cmdline(':', {
   })
 })
 
--- Set up lspconfig
+local on_attach = function(client, bufnr)
+  -- See `:help vim.lsp.*` for documentation on any of the below functions
+  local bufopts = { noremap = true, silent = true, buffer = bufnr }
+  vim.keymap.set('n', '<leader>k', vim.lsp.buf.hover, bufopts)
+  vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, bufopts)
+  vim.keymap.set('n', '<leader>g', vim.lsp.buf.implementation, bufopts)
+  vim.keymap.set('n', '<leader>f', function() vim.lsp.buf.format { async = true } end, bufopts)
+  vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
+end
+
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
+local opts = { capabilities = capabilities, on_attach = on_attach }
 local lspconfig = require('lspconfig')
-lspconfig.bashls.setup { capabilities = capabilities }
-lspconfig.cssls.setup { capabilities = capabilities }
-lspconfig.html.setup { capabilities = capabilities }
-lspconfig.sumneko_lua.setup { capabilities = capabilities }
-lspconfig.tsserver.setup { capabilities = capabilities }
-lspconfig.eslint.setup { capabilities = capabilities }
-lspconfig.stylelint_lsp.setup { capabilities = capabilities, filetypes = { "css", "scss" } }
+
+lspconfig.bashls.setup(opts)
+lspconfig.cssls.setup(opts)
+lspconfig.html.setup(opts)
+lspconfig.sumneko_lua.setup(opts)
+lspconfig.tsserver.setup(opts)
+lspconfig.eslint.setup(opts)
+lspconfig.stylelint_lsp.setup { capabilities = capabilities, on_attach = on_attach, filetypes = { "css", "scss" } }

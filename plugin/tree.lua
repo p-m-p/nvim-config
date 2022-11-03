@@ -9,7 +9,8 @@ require("nvim-tree").setup {
     adaptive_size = true,
     mappings = {
       list = {
-        { key = "<C-h>", action = "split" },
+        { key = "<leader>h", action = "split" },
+        { key = "<leader>v", action = "vsplit" },
       },
     },
   },
