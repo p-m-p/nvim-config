@@ -64,7 +64,7 @@ cmp.setup.cmdline(':', {
   })
 })
 
-local on_attach = function(client, bufnr)
+local on_attach = function(_, bufnr)
   -- See `:help vim.lsp.*` for documentation on any of the below functions
   local bufopts = { noremap = true, silent = true, buffer = bufnr }
   vim.keymap.set('n', '<leader>k', vim.lsp.buf.hover, bufopts)
@@ -72,10 +72,25 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', '<leader>i', vim.lsp.buf.implementation, bufopts)
   vim.keymap.set('n', '<leader>f', function() vim.lsp.buf.format { async = true } end, bufopts)
   vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
+
+  vim.api.nvim_create_autocmd("CursorHold", {
+    buffer = bufnr,
+    callback = function()
+      local opts = {
+        focusable = false,
+        close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost"  },
+        border = 'rounded',
+        source = 'always',
+        prefix = ' ',
+        scope = 'cursor',
+
+      }
+      vim.diagnostic.open_float(nil, opts)
+    end
+  })
 end
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
-
 local opts = { capabilities = capabilities, on_attach = on_attach }
 local lspconfig = require('lspconfig')
 

@@ -2,6 +2,7 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 vim.g.mapleader = ";"
 
+vim.o.updatetime = 250
 vim.o.number = true
 
 vim.api.nvim_set_keymap("n", "<leader>c", ":noh<cr>", {
@@ -12,6 +13,9 @@ vim.api.nvim_set_keymap("n", "ca", "", {
   callback = function ()
     vim.lsp.buf.code_action()
   end
+})
+vim.diagnostic.config({
+  virtual_text = false
 })
 
 -- Diagnostic gutter icons
