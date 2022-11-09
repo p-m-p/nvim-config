@@ -52,6 +52,8 @@ return require("packer").startup(function(use)
     "jiangmiao/auto-pairs",
   }
 
+  use "tpope/vim-fugitive"
+
   use {
     "editorconfig/editorconfig-vim",
     setup = function()
