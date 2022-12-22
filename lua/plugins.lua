@@ -32,6 +32,11 @@ return require("packer").startup(function(use)
     end
   }
 
+  -- Syntax
+  use {
+    "evanleck/vim-svelte"
+  }
+
   -- Code completion formatting and linting
   use {
     "williamboman/mason.nvim",
@@ -52,7 +57,10 @@ return require("packer").startup(function(use)
     "jiangmiao/auto-pairs",
   }
 
-  use "tpope/vim-fugitive"
+  use {
+    "tpope/vim-fugitive",
+    "tpope/vim-rhubarb",
+  }
 
   use {
     "editorconfig/editorconfig-vim",

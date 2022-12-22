@@ -8,11 +8,27 @@ require("null-ls").setup({
         group = augroup,
         buffer = bufnr,
         callback = function()
-          vim.lsp.buf.format({ bufnr = bufnr, async = true })
+          vim.lsp.buf.format({ bufnr = bufnr, async = false })
         end,
       })
     end
   end,
 })
 
-require("prettier").setup()
+require("prettier").setup {
+  filetypes = {
+    "css",
+    "graphql",
+    "html",
+    "javascript",
+    "javascriptreact",
+    "json",
+    "less",
+    "markdown",
+    "scss",
+    "svelte",
+    "typescript",
+    "typescriptreact",
+    "yaml",
+  }
+}
