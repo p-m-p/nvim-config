@@ -1,5 +1,5 @@
 require 'nvim-treesitter.configs'.setup {
-  ensure_installed = { "css", "html", "lua", "tsx", "typescript", "svelte", "embedded_template" },
+  ensure_installed = { "css", "html", "lua",  "markdown", "tsx", "typescript", "svelte", "embedded_template" },
   sync_install = false,
   auto_install = true,
   highlight = {

@@ -94,10 +94,16 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities()
 local opts = { capabilities = capabilities, on_attach = on_attach }
 local lspconfig = require('lspconfig')
 
-lspconfig.bashls.setup(opts)
-lspconfig.cssls.setup(opts)
-lspconfig.html.setup(opts)
-lspconfig.sumneko_lua.setup(opts)
-lspconfig.tsserver.setup(opts)
-lspconfig.eslint.setup(opts)
-lspconfig.stylelint_lsp.setup { capabilities = capabilities, on_attach = on_attach, filetypes = { "css", "scss" } }
+require("mason-lspconfig").setup_handlers {
+  function (server_name)
+    if server_name == 'stylelint' then
+      lspconfig[server_name].setup {
+        capabilities = capabilities,
+        filetypes = { "css", "scss" },
+        on_attach = on_attach,
+      }
+    end
+
+    lspconfig[server_name].setup(opts)
+  end
+}
