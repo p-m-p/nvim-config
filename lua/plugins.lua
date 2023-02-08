@@ -55,6 +55,7 @@ return require("packer").startup(function(use)
     { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" },
     "tpope/vim-surround",
     "jiangmiao/auto-pairs",
+    "b0o/SchemaStore.nvim",
   }
 
   use {

@@ -97,13 +97,25 @@ local lspconfig = require('lspconfig')
 require("mason-lspconfig").setup_handlers {
   function (server_name)
     if server_name == 'stylelint' then
-      lspconfig[server_name].setup {
+      lspconfig.stylelint.setup {
         capabilities = capabilities,
         filetypes = { "css", "scss" },
         on_attach = on_attach,
       }
+    elseif server_name == 'jsonls' then
+      lspconfig.jsonls.setup {
+        capabilities = capabilities,
+        on_attach = on_attach,
+        settings = {
+          json = {
+            schemas = require('schemastore').json.schemas(),
+            validate = { enable = true },
+          },
+        },
+      }
+    else
+      lspconfig[server_name].setup(opts)
     end
-
-    lspconfig[server_name].setup(opts)
   end
 }
+

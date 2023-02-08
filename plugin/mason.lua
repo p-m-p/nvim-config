@@ -4,11 +4,13 @@ require("mason-lspconfig").setup {
     "bashls",
     "cssls",
     "eslint",
+    "jsonls",
     "html",
     "marksman",
     "stylelint_lsp",
     "sumneko_lua",
     "tailwindcss",
-    "ttsserver"
-  }
+    "ttsserver",
+  },
+  automatic_installation = true,
 }
