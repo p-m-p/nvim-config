@@ -14,9 +14,6 @@ vim.api.nvim_set_keymap("n", "ca", "", {
     vim.lsp.buf.code_action()
   end
 })
-vim.diagnostic.config({
-  virtual_text = false
-})
 
 -- Diagnostic gutter icons
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
