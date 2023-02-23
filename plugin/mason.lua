@@ -10,7 +10,7 @@ require("mason-lspconfig").setup {
     "stylelint_lsp",
     "sumneko_lua",
     "tailwindcss",
-    "ttsserver",
+    "tsserver",
   },
   automatic_installation = true,
 }
