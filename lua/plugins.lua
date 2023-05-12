@@ -56,6 +56,7 @@ return require("packer").startup(function(use)
     "tpope/vim-surround",
     "jiangmiao/auto-pairs",
     "b0o/SchemaStore.nvim",
+    "mfussenegger/nvim-jdtls"
   }
 
   use {
