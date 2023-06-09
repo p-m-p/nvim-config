@@ -56,12 +56,13 @@ return require("packer").startup(function(use)
     "tpope/vim-surround",
     "jiangmiao/auto-pairs",
     "b0o/SchemaStore.nvim",
-    "mfussenegger/nvim-jdtls"
+    "mfussenegger/nvim-jdtls",
   }
 
   use {
     "tpope/vim-fugitive",
     "tpope/vim-rhubarb",
+    "kshenoy/vim-signature",
   }
 
   use {
@@ -84,7 +85,7 @@ return require("packer").startup(function(use)
     tag = "0.1.0",
     requires = {
       "nvim-lua/plenary.nvim"
-    }
+    },
   }
   use { "nvim-telescope/telescope-ui-select.nvim" }
 
