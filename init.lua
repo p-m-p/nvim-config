@@ -6,13 +6,13 @@ vim.o.updatetime = 250
 vim.o.number = true
 
 vim.api.nvim_set_keymap("n", "<leader>c", ":noh<cr>", {
-  silent = true
+  silent = true,
 })
 vim.api.nvim_set_keymap("n", "ca", "", {
   silent = true,
-  callback = function ()
+  callback = function()
     vim.lsp.buf.code_action()
-  end
+  end,
 })
 
 -- Diagnostic gutter icons
@@ -22,4 +22,4 @@ for type, icon in pairs(signs) do
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 end
 
-require("plugins")
+require "plugins"

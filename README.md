@@ -1,5 +1,4 @@
-Neovim configs
-===
+# Neovim configs
 
 Requires [Packer](https://github.com/wbthomason/packer.nvim)
 
