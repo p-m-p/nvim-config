@@ -1,4 +1,5 @@
 require("mason").setup()
+
 require("mason-lspconfig").setup {
   ensure_installed = {
     "bashls",
@@ -15,4 +16,15 @@ require("mason-lspconfig").setup {
     "tsserver",
   },
   automatic_installation = true,
+}
+
+require("mason-null-ls").setup {
+  automatic_installation = true,
+  ensure_installed = {
+    "codespell",
+    "prettierd",
+    "selene",
+    "stylua",
+    "yamllint",
+  },
 }

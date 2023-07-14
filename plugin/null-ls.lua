@@ -16,17 +16,10 @@ null_ls.setup {
   end,
 
   sources = {
+    null_ls.builtins.diagnostics.codespell,
+    null_ls.builtins.diagnostics.selene,
+    null_ls.builtins.diagnostics.yamllint,
     null_ls.builtins.formatting.prettierd,
     null_ls.builtins.formatting.stylua,
-  },
-}
-
-require("mason-null-ls").setup {
-  automatic_installation = true,
-  ensure_installed = {
-    "codespell",
-    "prettierd",
-    "stylua",
-    "yamllint",
   },
 }
