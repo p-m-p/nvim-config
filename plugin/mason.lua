@@ -4,8 +4,10 @@ require("mason-lspconfig").setup {
   ensure_installed = {
     "bashls",
     "cssls",
+    "denols",
     "dockerls",
     "eslint",
+    "gradle_ls",
     "jsonls",
     "kotlin_language_server",
     "html",
