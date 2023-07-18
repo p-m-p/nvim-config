@@ -27,6 +27,7 @@ require("mason-null-ls").setup {
     "codespell",
     "prettierd",
     "selene",
+    "shellcheck",
     "stylua",
     "yamllint",
   },
