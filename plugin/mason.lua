@@ -13,6 +13,7 @@ require("mason-lspconfig").setup {
     "html",
     "lua_ls",
     "marksman",
+    "rubocop",
     "stylelint_lsp",
     "tailwindcss",
     "tsserver",
