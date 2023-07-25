@@ -1,7 +1,5 @@
-# Neovim configs
+# Personal Neovim configuration
 
-Requires [Packer](https://github.com/wbthomason/packer.nvim)
-
-```shell
+```sh
 git clone git@github.com:p-m-p/nvim-config.git ~/.config/nvim
 ```
