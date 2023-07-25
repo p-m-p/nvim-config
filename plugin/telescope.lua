@@ -1,13 +1,20 @@
-require("telescope").setup {
+local all_ok, telescope, themes, builtin = pcall(function()
+  return require "telescope", require "telescope.themes", require "telescope.builtin"
+end)
+
+if not all_ok then
+  return
+end
+
+telescope.setup {
   extensions = {
     ["ui-select"] = {
-      require("telescope.themes").get_dropdown(),
+      themes.get_dropdown(),
     },
   },
 }
-require("telescope").load_extension "ui-select"
+telescope.load_extension "ui-select"
 
-local builtin = require "telescope.builtin"
 local bufopts = { noremap = true, silent = true }
 vim.keymap.set("n", "<leader>d", function()
   builtin.lsp_type_definitions()

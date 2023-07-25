@@ -1,9 +1,20 @@
-local cmp = require "cmp"
+local all_ok, cmp, luasnip, cmp_nvim_lsp, lspconfig, mason_lspconfig, schemastore = pcall(function()
+  return require "cmp",
+      require "luasnip",
+      require "cmp_nvim_lsp",
+      require "lspconfig",
+      require "mason-lspconfig",
+      require "schemastore"
+end)
+
+if not all_ok then
+  return
+end
 
 cmp.setup {
   snippet = {
     expand = function(args)
-      require("luasnip").lsp_expand(args.body)
+      luasnip.lsp_expand(args.body)
     end,
   },
   window = {
@@ -91,11 +102,10 @@ local on_attach = function(_, bufnr)
   })
 end
 
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
+local capabilities = cmp_nvim_lsp.default_capabilities()
 local opts = { capabilities = capabilities, on_attach = on_attach }
-local lspconfig = require "lspconfig"
 
-require("mason-lspconfig").setup_handlers {
+mason_lspconfig.setup_handlers {
   function(server_name)
     if server_name == "stylelint" then
       lspconfig.stylelint.setup {
@@ -109,7 +119,7 @@ require("mason-lspconfig").setup_handlers {
         on_attach = on_attach,
         settings = {
           json = {
-            schemas = require("schemastore").json.schemas(),
+            schemas = schemastore.json.schemas(),
             validate = { enable = true },
           },
         },

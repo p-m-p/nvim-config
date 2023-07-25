@@ -1,5 +1,10 @@
+local ok, null_ls = pcall(require, "null-ls")
+
+if not ok then
+  return
+end
+
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
-local null_ls = require "null-ls"
 
 null_ls.setup {
   on_attach = function(client, bufnr)

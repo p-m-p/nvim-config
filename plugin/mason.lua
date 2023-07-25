@@ -1,6 +1,13 @@
-require("mason").setup()
+local all_ok, mason, mason_lspconfig, mason_null_ls = pcall(function()
+  return require "mason", require "mason-lspconfig", require "mason-null-ls"
+end)
 
-require("mason-lspconfig").setup {
+if not all_ok then
+  return
+end
+
+mason.setup()
+mason_lspconfig.setup {
   ensure_installed = {
     "bashls",
     "cssls",
@@ -19,8 +26,7 @@ require("mason-lspconfig").setup {
   },
   automatic_installation = true,
 }
-
-require("mason-null-ls").setup {
+mason_null_ls.setup {
   automatic_installation = true,
   ensure_installed = {
     "codespell",

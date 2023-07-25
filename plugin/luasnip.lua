@@ -1,3 +1,9 @@
+local ok, luasnip_loaders = pcall(require, "luasnip.loaders.from_vscode")
+
+if not ok then
+  return
+end
+
 vim.cmd [[
   " press <Tab> to expand or jump in a snippet. These can also be mapped separately
   " via <Plug>luasnip-expand-snippet and <Plug>luasnip-jump-next.
@@ -13,4 +19,4 @@ vim.cmd [[
   smap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
 ]]
 
-require("luasnip.loaders.from_vscode").lazy_load() -- install from plugins
+luasnip_loaders.lazy_load()

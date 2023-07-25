@@ -1,3 +1,9 @@
+local ok, tree = pcall(require, "nvim-tree")
+
+if not ok then
+  return
+end
+
 vim.api.nvim_set_keymap("n", "<leader>t", ":NvimTreeToggle<cr>", {
   silent = true,
 })
@@ -73,7 +79,7 @@ local function on_attach(bufnr)
   vim.keymap.set("n", "<leader>v", api.node.open.vertical, opts "Open: Vertical Split")
 end
 
-require("nvim-tree").setup {
+tree.setup {
   sort_by = "case_sensitive",
   open_on_tab = true,
   on_attach = on_attach,
