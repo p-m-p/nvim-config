@@ -23,8 +23,9 @@ null_ls.setup {
   sources = {
     null_ls.builtins.diagnostics.codespell,
     null_ls.builtins.diagnostics.selene,
-    null_ls.builtins.diagnostics.yamllint,
     null_ls.builtins.diagnostics.shellcheck,
+    null_ls.builtins.diagnostics.yamllint,
+    null_ls.builtins.formatting.ktlint,
     null_ls.builtins.formatting.prettierd,
     null_ls.builtins.formatting.stylua,
   },

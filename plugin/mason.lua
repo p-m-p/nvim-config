@@ -30,6 +30,7 @@ mason_null_ls.setup {
   automatic_installation = true,
   ensure_installed = {
     "codespell",
+    "ktlint",
     "prettierd",
     "selene",
     "shellcheck",
