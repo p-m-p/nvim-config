@@ -92,7 +92,7 @@ return require("packer").startup(function(use)
   -- Search
   use {
     "nvim-telescope/telescope.nvim",
-    tag = "0.1.0",
+    tag = "0.1.3",
     requires = {
       "nvim-lua/plenary.nvim",
     },
