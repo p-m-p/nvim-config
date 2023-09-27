@@ -47,7 +47,7 @@ return require("packer").startup(function(use)
     { "williamboman/mason.nvim", run = ":MasonUpdate" },
     "williamboman/mason-lspconfig.nvim",
     "neovim/nvim-lspconfig",
-    "jose-elias-alvarez/null-ls.nvim",
+    "p-m-p/null-ls.nvim",
     "jay-babu/mason-null-ls.nvim",
     "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/cmp-buffer",
