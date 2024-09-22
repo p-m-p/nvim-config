@@ -42,6 +42,11 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   command = "set filetype=ejs",
 })
 
+vim.filetype.add {
+  extension = {
+    njk = "jinja",
+  },
+}
 vim.treesitter.language.register("embedded_template", "jinja")
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   pattern = "*.njk",

@@ -123,12 +123,3 @@ mason_lspconfig.setup_handlers {
     end
   end,
 }
-
-vim.filetype.add {
-  extension = {
-    jinja = "jinja",
-    jinja2 = "jinja",
-    j2 = "jinja",
-    njk = "jinja",
-  },
-}
