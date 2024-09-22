@@ -44,7 +44,7 @@ return require("packer").startup(function(use)
 
   -- LSP
   use {
-    { "williamboman/mason.nvim", run = ":MasonUpdate" },
+    { "williamboman/mason.nvim",         run = ":MasonUpdate" },
     "williamboman/mason-lspconfig.nvim",
     "neovim/nvim-lspconfig",
     "p-m-p/null-ls.nvim",
@@ -98,9 +98,6 @@ return require("packer").startup(function(use)
     },
   }
   use { "nvim-telescope/telescope-ui-select.nvim" }
-
-  -- Issues
-  use { "folke/trouble.nvim" }
 
   if packer_bootstrap then
     require("packer").sync()

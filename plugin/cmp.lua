@@ -91,10 +91,10 @@ local opts = { capabilities = capabilities, on_attach = on_attach }
 
 mason_lspconfig.setup_handlers {
   function(server_name)
-    if server_name == "stylelint" then
-      lspconfig.stylelint.setup {
+    if server_name == "stylelint_lsp" then
+      lspconfig.stylelint_lsp.setup {
         capabilities = capabilities,
-        filetypes = { "css", "scss" },
+        filetypes = { "css" },
         on_attach = on_attach,
       }
     elseif server_name == "jsonls" then
@@ -108,8 +108,27 @@ mason_lspconfig.setup_handlers {
           },
         },
       }
+    elseif server_name == "cssls" then
+      lspconfig.cssls.setup {
+        capabilities = capabilities,
+        on_attach = on_attach,
+        settings = {
+          css = {
+            validate = false,
+          },
+        },
+      }
     else
       lspconfig[server_name].setup(opts)
     end
   end,
+}
+
+vim.filetype.add {
+  extension = {
+    jinja = "jinja",
+    jinja2 = "jinja",
+    j2 = "jinja",
+    njk = "jinja",
+  },
 }

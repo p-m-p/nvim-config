@@ -10,12 +10,10 @@ configs.setup {
   ensure_installed = {
     "css",
     "html",
-    "java",
     "lua",
     "markdown",
     "tsx",
     "typescript",
-    "svelte",
     "embedded_template",
   },
   sync_install = false,
@@ -42,4 +40,10 @@ vim.treesitter.language.register("embedded_template", "ejs")
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   pattern = "*.ejs",
   command = "set filetype=ejs",
+})
+
+vim.treesitter.language.register("embedded_template", "jinja")
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+  pattern = "*.njk",
+  command = "set filetype=jinja",
 })

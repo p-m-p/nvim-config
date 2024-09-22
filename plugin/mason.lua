@@ -8,29 +8,25 @@ end
 
 mason.setup()
 mason_lspconfig.setup {
+  automatic_installation = true,
   ensure_installed = {
     "bashls",
     "cssls",
     "dockerls",
     "eslint",
-    "gradle_ls",
     "jsonls",
-    "kotlin_language_server",
     "html",
     "lua_ls",
     "marksman",
-    "rubocop",
     "stylelint_lsp",
     "tailwindcss",
-    "tsserver",
+    "ts_ls",
   },
-  automatic_installation = true,
 }
 mason_null_ls.setup {
   automatic_installation = true,
   ensure_installed = {
     "codespell",
-    "ktlint",
     "prettier",
     "selene",
     "shellcheck",
