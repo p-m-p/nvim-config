@@ -37,11 +37,6 @@ return require("packer").startup(function(use)
     "nvim-tree/nvim-tree.lua",
   }
 
-  -- Syntax
-  use {
-    "evanleck/vim-svelte",
-  }
-
   -- LSP
   use {
     { "williamboman/mason.nvim",         run = ":MasonUpdate" },
@@ -78,12 +73,6 @@ return require("packer").startup(function(use)
   use {
     "tpope/vim-fugitive",
     "tpope/vim-rhubarb",
-  }
-
-  -- Snippets
-  use {
-    "rafamadriz/friendly-snippets",
-    "saadparwaiz1/cmp_luasnip",
   }
 
   -- Marks
