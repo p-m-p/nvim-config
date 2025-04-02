@@ -10,7 +10,6 @@ mason.setup()
 mason_lspconfig.setup {
   automatic_installation = true,
   ensure_installed = {
-    "bashls",
     "cssls",
     "dockerls",
     "eslint",
@@ -29,7 +28,6 @@ mason_null_ls.setup {
     "codespell",
     "prettier",
     "selene",
-    "shellcheck",
     "stylua",
     "yamllint",
   },
