@@ -15,9 +15,7 @@ return require("packer").startup(function(use)
   use "wbthomason/packer.nvim"
 
   -- Support
-  use {
-    "nvim-tree/nvim-web-devicons",
-  }
+  use "nvim-tree/nvim-web-devicons"
 
   -- Theme
   use {
@@ -42,7 +40,7 @@ return require("packer").startup(function(use)
     { "williamboman/mason.nvim",         run = ":MasonUpdate" },
     "williamboman/mason-lspconfig.nvim",
     "neovim/nvim-lspconfig",
-    "p-m-p/null-ls.nvim",
+    "nvimtools/none-ls.nvim",
     "jay-babu/mason-null-ls.nvim",
     "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/cmp-buffer",
@@ -56,7 +54,6 @@ return require("packer").startup(function(use)
 
   -- Code formatting
   use {
-    { "L3MON4D3/LuaSnip", tag = "v1.*" },
     "tpope/vim-surround",
     "tpope/vim-sleuth",
     "jiangmiao/auto-pairs",
@@ -76,7 +73,7 @@ return require("packer").startup(function(use)
   }
 
   -- Marks
-  use { "kshenoy/vim-signature" }
+  use "kshenoy/vim-signature"
 
   -- Search
   use {
@@ -86,7 +83,16 @@ return require("packer").startup(function(use)
       "nvim-lua/plenary.nvim",
     },
   }
-  use { "nvim-telescope/telescope-ui-select.nvim" }
+  use "nvim-telescope/telescope-ui-select.nvim"
+
+  -- AI
+  use "github/copilot.vim"
+  use {
+    'CopilotC-Nvim/CopilotChat.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim'
+    }
+  }
 
   if packer_bootstrap then
     require("packer").sync()
