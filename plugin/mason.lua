@@ -18,7 +18,6 @@ mason_lspconfig.setup {
     "lua_ls",
     "marksman",
     "stylelint_lsp",
-    "tailwindcss",
     "ts_ls",
   },
 }
