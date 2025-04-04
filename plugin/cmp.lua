@@ -1,10 +1,5 @@
-local all_ok, cmp, luasnip, cmp_nvim_lsp, lspconfig, mason_lspconfig, schemastore = pcall(function()
-  return require "cmp",
-      require "luasnip",
-      require "cmp_nvim_lsp",
-      require "lspconfig",
-      require "mason-lspconfig",
-      require "schemastore"
+local all_ok, cmp, cmp_nvim_lsp, lspconfig, mason_lspconfig, schemastore = pcall(function()
+  return require "cmp", require "cmp_nvim_lsp", require "lspconfig", require "mason-lspconfig", require "schemastore"
 end)
 
 if not all_ok then
@@ -12,11 +7,6 @@ if not all_ok then
 end
 
 cmp.setup {
-  snippet = {
-    expand = function(args)
-      luasnip.lsp_expand(args.body)
-    end,
-  },
   mapping = cmp.mapping.preset.insert {
     ["<C-b>"] = cmp.mapping.scroll_docs(-4),
     ["<C-f>"] = cmp.mapping.scroll_docs(4),

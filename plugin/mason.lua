@@ -1,5 +1,5 @@
-local all_ok, mason, mason_lspconfig, mason_null_ls = pcall(function()
-  return require "mason", require "mason-lspconfig", require "mason-null-ls"
+local all_ok, mason, mason_lspconfig = pcall(function()
+  return require "mason", require "mason-lspconfig"
 end)
 
 if not all_ok then
@@ -20,15 +20,5 @@ mason_lspconfig.setup {
     "stylelint_lsp",
     "tailwindcss",
     "ts_ls",
-  },
-}
-mason_null_ls.setup {
-  automatic_installation = true,
-  ensure_installed = {
-    "codespell",
-    "prettier",
-    "selene",
-    "stylua",
-    "yamllint",
   },
 }

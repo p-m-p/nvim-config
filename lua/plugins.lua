@@ -37,11 +37,10 @@ return require("packer").startup(function(use)
 
   -- LSP
   use {
-    { "williamboman/mason.nvim",         run = ":MasonUpdate" },
+    { "williamboman/mason.nvim", run = ":MasonUpdate" },
     "williamboman/mason-lspconfig.nvim",
     "neovim/nvim-lspconfig",
     "nvimtools/none-ls.nvim",
-    "jay-babu/mason-null-ls.nvim",
     "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-path",
@@ -88,10 +87,10 @@ return require("packer").startup(function(use)
   -- AI
   use "github/copilot.vim"
   use {
-    'CopilotC-Nvim/CopilotChat.nvim',
+    "CopilotC-Nvim/CopilotChat.nvim",
     requires = {
-      'nvim-lua/plenary.nvim'
-    }
+      "nvim-lua/plenary.nvim",
+    },
   }
 
   if packer_bootstrap then
