@@ -10,7 +10,9 @@ vim.keymap.set("i", "<C-J>", 'copilot#Accept("\\<CR>")', {
 })
 vim.g.copilot_no_tab_map = true
 
-chat.setup {}
+chat.setup {
+  model = "claude-3.5-sonnet",
+}
 
 vim.keymap.set({ "n" }, "<leader>aa", chat.toggle, { desc = "AI Toggle" })
 vim.keymap.set({ "v" }, "<leader>aa", chat.open, { desc = "AI Open" })
