@@ -16,6 +16,7 @@ telescope.setup {
 telescope.load_extension "ui-select"
 
 local bufopts = { noremap = true, silent = true }
+vim.keymap.set("n", "<leader>F", builtin.find_files, bufopts)
 vim.keymap.set("n", "<leader>d", builtin.lsp_type_definitions, bufopts)
 vim.keymap.set("n", "<leader>i", builtin.lsp_implementations, bufopts)
 vim.keymap.set("n", "<leader>r", builtin.lsp_references, bufopts)
