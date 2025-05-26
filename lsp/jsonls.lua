@@ -6,7 +6,7 @@ if not ok then
   return
 end
 
-vim.lsp.config["jsonls"] = {
+return {
   settings = {
     json = {
       schemas = schemastore.json.schemas(),

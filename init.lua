@@ -1,21 +1,7 @@
---vim.g.loaded_netrw = 1
---vim.g.loaded_netrwPlugin = 1
 vim.g.mapleader = ";"
 
 vim.o.updatetime = 250
 vim.o.number = true
-
-vim.api.nvim_set_keymap("n", "<leader>c", ":noh<cr>", {
-  silent = true,
-})
-vim.api.nvim_set_keymap("n", "ca", "", {
-  silent = true,
-  callback = function()
-    vim.lsp.buf.code_action()
-  end,
-})
-
---vim.opt.clipboard = "unnamedplus"
 
 vim.diagnostic.config {
   signs = {
@@ -28,6 +14,10 @@ vim.diagnostic.config {
   },
   virtual_text = true,
 }
+
+vim.api.nvim_set_keymap("n", "<leader>c", ":noh<cr>", {
+  silent = true,
+})
 
 vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(args)
@@ -42,6 +32,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
       vim.lsp.buf.format { async = true }
     end, bufopts)
     vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, bufopts)
+    vim.keymap.set("n", "ca", function()
+      vim.lsp.buf.code_action()
+    end, bufopts)
 
     vim.api.nvim_create_autocmd("CursorHold", {
       buffer = args.buf,
