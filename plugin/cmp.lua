@@ -1,5 +1,5 @@
-local all_ok, cmp, cmp_nvim_lsp, lspconfig, mason_lspconfig, schemastore = pcall(function()
-  return require "cmp", require "cmp_nvim_lsp", require "lspconfig", require "mason-lspconfig", require "schemastore"
+local all_ok, cmp, cmp_nvim_lsp = pcall(function()
+  return require "cmp", require "cmp_nvim_lsp"
 end)
 
 if not all_ok then
@@ -28,7 +28,6 @@ cmp.setup {
   },
   sources = cmp.config.sources({
     { name = "nvim_lsp" },
-    { name = "luasnip" },
   }, {
     { name = "buffer" },
   }),
@@ -50,61 +49,6 @@ cmp.setup.cmdline(":", {
   }),
 })
 
-local on_attach = function(_, bufnr)
-  local bufopts = { noremap = true, silent = true, buffer = bufnr }
-  local float_opts = { focusable = false, border = "single" }
-
-  vim.keymap.set("n", "<leader>k", function()
-    vim.lsp.buf.hover(float_opts)
-  end, bufopts)
-  vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, bufopts)
-  vim.keymap.set("n", "<leader>f", function()
-    vim.lsp.buf.format { async = true }
-  end, bufopts)
-  vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, bufopts)
-
-  vim.api.nvim_create_autocmd("CursorHold", {
-    buffer = bufnr,
-    callback = function()
-      vim.diagnostic.open_float(nil, float_opts)
-    end,
-  })
-end
-
-local capabilities = cmp_nvim_lsp.default_capabilities()
-local opts = { capabilities = capabilities, on_attach = on_attach }
-
-mason_lspconfig.setup_handlers {
-  function(server_name)
-    if server_name == "stylelint_lsp" then
-      lspconfig.stylelint_lsp.setup {
-        capabilities = capabilities,
-        filetypes = { "css" },
-        on_attach = on_attach,
-      }
-    elseif server_name == "jsonls" then
-      lspconfig.jsonls.setup {
-        capabilities = capabilities,
-        on_attach = on_attach,
-        settings = {
-          json = {
-            schemas = schemastore.json.schemas(),
-            validate = { enable = true },
-          },
-        },
-      }
-    elseif server_name == "cssls" then
-      lspconfig.cssls.setup {
-        capabilities = capabilities,
-        on_attach = on_attach,
-        settings = {
-          css = {
-            validate = false,
-          },
-        },
-      }
-    else
-      lspconfig[server_name].setup(opts)
-    end
-  end,
-}
+vim.lsp.config("*", {
+  capabilities = cmp_nvim_lsp.default_capabilities(),
+})
