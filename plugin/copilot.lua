@@ -4,15 +4,15 @@ if not ok then
   return
 end
 
+chat.setup {
+  model = "claude-3.5-sonnet",
+}
+
 vim.keymap.set("i", "<C-J>", 'copilot#Accept("\\<CR>")', {
   expr = true,
   replace_keycodes = false,
 })
 vim.g.copilot_no_tab_map = true
-
-chat.setup {
-  model = "claude-3.5-sonnet",
-}
 
 vim.keymap.set({ "n" }, "<leader>aa", chat.toggle, { desc = "AI Toggle" })
 vim.keymap.set({ "v" }, "<leader>aa", chat.open, { desc = "AI Open" })
