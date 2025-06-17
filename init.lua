@@ -22,7 +22,7 @@ vim.api.nvim_set_keymap("n", "<leader>c", ":noh<cr>", {
 vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(args)
     local bufopts = { noremap = true, silent = true, buffer = args.buf }
-    local float_opts = { focusable = false, border = "single" }
+    local float_opts = { focusable = false, border = "single", source = true }
 
     vim.keymap.set("n", "<leader>k", function()
       vim.lsp.buf.hover(float_opts)
@@ -35,6 +35,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
     vim.keymap.set("n", "ca", function()
       vim.lsp.buf.code_action()
     end, bufopts)
+    vim.keymap.set("n", "<leader>[", vim.diagnostic.goto_prev, bufopts)
+    vim.keymap.set("n", "<leader>]", vim.diagnostic.goto_next, bufopts)
 
     vim.api.nvim_create_autocmd("CursorHold", {
       buffer = args.buf,
