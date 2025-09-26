@@ -22,14 +22,7 @@ return require("packer").startup(function(use)
     "nvim-tree/nvim-web-devicons",
     "nvim-lualine/lualine.nvim",
     "nvim-tree/nvim-tree.lua",
-    {
-      "catppuccin/nvim",
-      as = "catppuccin",
-      config = function()
-        require("catppuccin").setup { flavour = "mocha" }
-        vim.api.nvim_command "colorscheme catppuccin"
-      end,
-    },
+    { "catppuccin/nvim", as = "catppuccin" },
     {
       "editorconfig/editorconfig-vim",
       setup = function()
