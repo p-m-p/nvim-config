@@ -1,3 +1,7 @@
+-- Plugin-specific globals (must be set before loading plugins)
+vim.g.EditorConfig_max_line_indicator = "none"
+vim.g.EditorConfig_preserve_formatoptions = 1
+
 vim.g.mapleader = ";"
 
 vim.o.updatetime = 250
@@ -47,6 +51,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
   end,
 })
 
-vim.cmd.colorscheme "catppuccin-mocha"
+-- Load plugins with vim-plug
+vim.cmd("source " .. vim.fn.stdpath("config") .. "/plugins.vim")
 
-require "plugins"
+-- Set colorscheme after plugins are loaded
+pcall(vim.cmd.colorscheme, "catppuccin-mocha")
