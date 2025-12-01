@@ -47,4 +47,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
   end,
 })
 
+vim.cmd.colorscheme "catppuccin-mocha"
+
 require "plugins"
