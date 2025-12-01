@@ -34,7 +34,7 @@ return require("packer").startup(function(use)
     "kshenoy/vim-signature",
     {
       "nvim-telescope/telescope.nvim",
-      tag = "0.1.8",
+      tag = "0.2.0",
     },
     "nvim-telescope/telescope-ui-select.nvim",
     {
