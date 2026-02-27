@@ -67,7 +67,7 @@ Plug("catppuccin/nvim", { as = "catppuccin" })
 Plug "editorconfig/editorconfig-vim"
 Plug "jiangmiao/auto-pairs"
 Plug "kshenoy/vim-signature"
-Plug("nvim-telescope/telescope.nvim", { tag = "v0.2.0" })
+Plug("nvim-telescope/telescope.nvim", { tag = "v0.2.1" })
 Plug "nvim-telescope/telescope-ui-select.nvim"
 Plug("nvim-treesitter/nvim-treesitter", { ["do"] = ":TSUpdate" })
 
