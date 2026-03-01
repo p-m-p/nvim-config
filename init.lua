@@ -72,6 +72,7 @@ Plug "nvim-telescope/telescope-ui-select.nvim"
 Plug("nvim-treesitter/nvim-treesitter", { ["do"] = ":TSUpdate" })
 
 -- LSP
+Plug "folke/lazydev.nvim"
 Plug("williamboman/mason.nvim", { ["do"] = ":MasonUpdate" })
 Plug "williamboman/mason-lspconfig.nvim"
 Plug "neovim/nvim-lspconfig"
