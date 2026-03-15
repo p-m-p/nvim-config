@@ -52,6 +52,19 @@ vim.api.nvim_create_autocmd("LspAttach", {
 })
 
 -- Plugins via vim-plug (https://github.com/junegunn/vim-plug)
+local vim_plug_path = vim.fn.stdpath "data" .. "/site/autoload/plug.vim"
+local vim_plug_missing = vim.fn.empty(vim.fn.glob(vim_plug_path)) > 0
+
+if vim_plug_missing then
+  vim.fn.system {
+    "curl",
+    "-fLo",
+    vim_plug_path,
+    "--create-dirs",
+    "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim",
+  }
+end
+
 local Plug = vim.fn["plug#"]
 
 vim.call "plug#begin"
@@ -95,4 +108,10 @@ Plug "CopilotC-Nvim/CopilotChat.nvim"
 
 vim.call "plug#end"
 
-vim.cmd.colorscheme "catppuccin-mocha"
+-- Auto-install plugins on first run
+if vim_plug_missing then
+  vim.cmd "PlugInstall --sync"
+end
+
+-- Set colorscheme (silently fail if not installed yet)
+pcall(vim.cmd.colorscheme, "catppuccin-mocha")
