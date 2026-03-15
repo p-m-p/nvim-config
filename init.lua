@@ -63,6 +63,7 @@ if vim_plug_missing then
     "--create-dirs",
     "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim",
   }
+  vim.cmd("source " .. vim_plug_path)
 end
 
 local Plug = vim.fn["plug#"]
