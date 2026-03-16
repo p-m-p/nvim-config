@@ -1,0 +1,63 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check formatting with StyLua
+        uses: JohnnyMorganz/stylua-action@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          version: latest
+          args: --check .
+
+      - name: Install selene
+        run: |
+          gh release download \
+            --repo Kampfkarren/selene \
+            --pattern "selene-[0-9]*-linux.zip" \
+            --dir /tmp/selene-dl
+          unzip /tmp/selene-dl/*.zip -d /tmp/selene-dist
+          sudo install -m 755 /tmp/selene-dist/selene /usr/local/bin/selene
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Lint with selene
+        run: selene .
+
+  plugin-install:
+    name: Plugin Install
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Neovim
+        uses: rhysd/action-setup-vim@v1
+        with:
+          neovim: true
+          version: stable
+
+      - name: Install vim-plug
+        run: |
+          curl -fLo "${HOME}/.local/share/nvim/site/autoload/plug.vim" --create-dirs \
+            https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+      - name: Install plugins
+        run: |
+          mkdir -p "${HOME}/.config/nvim"
+          cp -r . "${HOME}/.config/nvim/"
+          nvim --headless '+PlugInstall --sync' +qa
+        timeout-minutes: 15
